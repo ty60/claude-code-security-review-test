@@ -1,24 +1,5 @@
 # PHP Security Code Review Prompt for Claude Code
 
-## GitHub Actions Workflow Configuration
-
-```yaml
-name: PHP Security Code Review
-on:
-  pull_request:
-    paths:
-      - '**.php'
-
-jobs:
-  security-review:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - name: Run PHP Security Review
-        run: |
-          claude-code --prompt-file .github/security-review-prompt.md --include="*.php" --output-format=github-issue
-```
-
 ## Security Review Prompt
 
 You are conducting a comprehensive security code review for a PHP application. Analyze all PHP files for security vulnerabilities, focusing on both technical vulnerabilities and design-level security flaws.
