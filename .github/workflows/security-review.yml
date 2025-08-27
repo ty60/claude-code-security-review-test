@@ -1,0 +1,14 @@
+name: PHP Security Code Review
+on:
+  pull_request:
+    paths:
+      - '**.php'
+
+jobs:
+  security-review:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run PHP Security Review
+        run: |
+          claude-code --prompt-file .github/security-review-prompt.md --include="*.php" --output-format=github-issue
